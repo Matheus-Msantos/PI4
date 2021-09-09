@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AddressController;
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -23,3 +24,11 @@ Route::post('/category', [CategoryController::class, 'store']);
 Route::get('/category/{category}', [CategoryController::class, 'show']);
 Route::put('/category/{category}', [CategoryController::class, 'update']);
 Route::delete('/category/{category}', [CategoryController::class, 'destroy']);
+
+
+/*-- Route Address --*/
+Route::get('/address', [AddressController::class, 'index']);
+Route::post('/address', [AddressController::class, 'store']);
+Route::get('/address/{address}', [AddressController::class, 'show']);
+Route::put('/address/{address}', [AddressController::class, 'update']);
+Route::delete('/address/{address}', [AddressController::class, 'destroy']);
