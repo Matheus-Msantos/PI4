@@ -59,7 +59,7 @@
 
 
             <label>Endereço</label>
-            <select id="address" name="address_id">
+            <select class="form-control" id="address" name="address_id">
             @foreach($addresses as $address)
                 <option value="{{ $address->id }}">
                     {{ $address->street }}
@@ -68,7 +68,7 @@
             </select>
 
 
-        <button type="submit" class="mb-3 btn btn-secondary fw-bold">Cadastrar</button>
+        <button type="submit" class="mt-3 mb-3 btn btn-secondary fw-bold">Cadastrar</button>
     </form>
 </body>
 </html>

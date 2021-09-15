@@ -27,7 +27,12 @@
         </div>
     @endif
 
+    <a href="{{ Route('category.index') }}">Categoria</a>
+    <a href="{{ Route('address.index') }}">Endereço</a>
+
     <h1 class="mt-5 text-center text-uppercase fw-bold">Lista de Eventos</h1>
+
+
 
     <a href="{{ Route('product.create') }}" class="btn btn-primary mb-3 fw-bold">Cadastrar Evento</a>
 
@@ -55,7 +60,7 @@
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->date }}</td>
                     <td>{{ $product->time }}</td>
-                    <td>{{ $product->clasifiction }}</td>
+                    <td>{{ $product->classification }}</td>
                     <td>{{ $product->description }}</td>
                     <td>{{ $product->category_id }}</td>
                     <td>{{ $product->address_id }}</td>

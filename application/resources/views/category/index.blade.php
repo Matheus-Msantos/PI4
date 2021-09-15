@@ -27,6 +27,9 @@
         </div>
     @endif
 
+    <a href="{{ Route('product.index') }}">Produto</a>
+    <a href="{{ Route('address.index') }}">Endereço</a>
+
     <h1 class="mt-5 text-center text-uppercase fw-bold">Lista de Categorias</h1>
 
     <a href="{{ Route('category.create') }}" class="mb-3 btn btn-primary">Cadastrar Categorias</a>
