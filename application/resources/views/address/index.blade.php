@@ -27,8 +27,14 @@
         </div>
     @endif
 
-    <a href="{{ Route('product.index') }}">Produtos</a>
-    <a href="{{ Route('category.index') }}">Categorias</a>
+    <ul class="nav justify-content-center bg-secondary">
+        <li class="nav-item">
+            <a class="h5 nav-link active text-white fw-bold" href="{{ Route('product.index') }}">Produtos</a>
+        </li>
+        <li class="nav-item">
+            <a class="h5 nav-link active text-white fw-bold" href="{{ Route('category.index') }}">Categorias</a>
+        </li>
+    </ul>
 
     <h1 class="mt-5 text-center text-uppercase fw-bold">Lista de Endereço</h1>
 
