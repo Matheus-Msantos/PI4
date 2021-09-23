@@ -12,18 +12,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 /*-- Route Product --*/
-Route::get('/product', [ProductController::class, 'index']);
-Route::post('/product', [ProductController::class, 'store']);
+Route::get('/product', [ProductController::class, 'indexApi']);
+Route::post('/product', [ProductController::class, 'storeApi']);
 Route::get('/product/{product}', [ProductController::class, 'show']);
-Route::put('/product/{product}', [ProductController::class, 'update']);
-Route::delete('/product/{product}', [ProductController::class, 'destroy']);
+Route::put('/product/{product}', [ProductController::class, 'updateApi']);
+Route::delete('/product/{product}', [ProductController::class, 'destroyApi']);
 
 /*-- Route Category --*/
-Route::get('/category', [CategoryController::class, 'index']);
-Route::post('/category', [CategoryController::class, 'store']);
+Route::get('/category', [CategoryController::class, 'indexApi']);
+Route::post('/category', [CategoryController::class, 'storeApi']);
 Route::get('/category/{category}', [CategoryController::class, 'show']);
-Route::put('/category/{category}', [CategoryController::class, 'update']);
-Route::delete('/category/{category}', [CategoryController::class, 'destroy']);
+Route::put('/category/{category}', [CategoryController::class, 'updateApi']);
+Route::delete('/category/{category}', [CategoryController::class, 'destroyApi']);
 
 
 /*-- Route Address --*/

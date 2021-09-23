@@ -11,7 +11,11 @@ class CategoryController extends Controller
     public function index()
     {
         return view('category.index')->with('categories', Category::all());
-        //return response()->json(Category::all());
+    }
+
+    public function indexApi()
+    {
+        return response()->json(Category::all());
     }
 
 
@@ -26,8 +30,13 @@ class CategoryController extends Controller
         Category::create($request->all());
         session()->flash('success', 'Categoria cadastrada com sucesso!');
         return redirect(Route('category.index'));
-        //$category = Category::create($request->all());
-        //return response()->json($category);
+    }
+
+
+    public function storeApi(Request $request)
+    {
+        $category = Category::create($request->all());
+        return response()->json($category);
     }
 
 
@@ -48,18 +57,27 @@ class CategoryController extends Controller
         $category->update($request->all());
         session()->flash('success', 'Categoria atualizada com sucesso!');
         return redirect(Route('category.index'));
-
-        //$category->update($request->all());
-        //return response()->json($category);
     }
+
+
+    public function updateApi(Request $request, Category $category)
+    {
+        $category->update($request->all());
+        return response()->json($category);
+    }
+
 
     public function destroy(Category $category)
     {
         $category->delete();
         session()->flash('success', 'Categoria deletada com sucesso!');
         return redirect(Route('category.index'));
+    }
 
-        //$category->delete();
-        //return response()->json($category);
+
+    public function destroyApi(Category $category)
+    {
+        $category->delete();
+        return response()->json($category);
     }
 }

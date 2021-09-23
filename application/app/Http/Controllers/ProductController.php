@@ -13,14 +13,20 @@ class ProductController extends Controller
     public function index()
     {
         return view('product.index')->with('products', Product::all());
-
-        //return response()->json(Product::all());
     }
+
+
+    public function indexApi()
+    {
+        return response()->json(Product::with('category')->get());
+    }
+
 
     public function create()
     {
         return view('product.create')->with(['categories' => Category::all(), 'addresses' => Address::all()]);
     }
+
 
     public function store(Request $request)
     {
@@ -28,14 +34,20 @@ class ProductController extends Controller
         session()->flash('success', 'Evento cadastrado com sucesso!');
         return redirect(Route('product.index'));
 
-        //$product = Product::create($request->all());
-        //return response()->json($product);
+
+    }
+
+
+    public function storeApi(Request $request) {
+        $product = Product::create($request->all());
+        $address = Address::create($request->all());
+        return response()->json($product);
     }
 
 
     public function show(Product $product)
     {
-        return response()->json($product);
+        return response()->json(Product::with('category')->where('id', $product->id)->get());
     }
 
 
@@ -50,9 +62,12 @@ class ProductController extends Controller
         $product->update($request->all());
         session()->flash('success', 'Evento atualizado com sucesso!');
         return redirect(Route('product.index'));
+    }
 
-        //$product->update($request->all());
-        //return response()->json($product);
+    public function updateApi(Request $request, Product $product)
+    {
+        $product->update($request->all());
+        return response()->json($product);
     }
 
 
@@ -61,8 +76,12 @@ class ProductController extends Controller
         $product->delete();
         session()->flash('success', 'Evento deletado com sucesso!');
         return redirect(Route('product.index'));
+    }
 
-        // $product->delete();
-        //return response()->json($product);
+
+    public function destroyApi(Product $product)
+    {
+        $product->delete();
+        return response()->json($product);
     }
 }
