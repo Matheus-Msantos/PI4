@@ -12,6 +12,9 @@ class ProductController extends Controller
 
     public function index()
     {
+
+        dd(auth('sanctum')->user());
+
         return view('product.index')->with('products', Product::all());
     }
 
