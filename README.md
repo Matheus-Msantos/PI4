@@ -1,4 +1,4 @@
-# PI4
+# Projeto Integrador - Sistema para Internet (4°semestre)
 **Projeto Integrador**, feito para praticar alguns conceitos do desenvolvimento de mobile com APIs
 esse projeto tem como intenção funcionar em smartphones android.
 
