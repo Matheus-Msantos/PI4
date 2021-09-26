@@ -14,7 +14,7 @@
     <h1 class="mt-5 text-center text-uppercase fw-bold">Editar Evento</h1>
     <a href="{{ Route('product.index') }}" class="mb-3 btn btn-primary">Voltar</a>
 
-    <form method="POST" action="{{ Route('product.update', $product->id) }}">
+    <form method="POST" action="{{ Route('product.update', $product->id) }}" enctype="multipart/form-data">
         @csrf
 
 
@@ -44,6 +44,9 @@
         <textarea class="mb-3 form-control" name="description">{{ $product->description }}</textarea>
 
 
+        <label class="h6 form-label">Imagem</label>
+        <input class="mb-3 form-control" id="image" name="image" type="file">
+
 
         <label class="h6 form-label">Categoria</label>
         <select class="mb-3 form-control" id="category" name="category_id">
@@ -53,8 +56,6 @@
                 </option>
             @endforeach
         </select>
-
-
 
 
         <label class="h6 form-label">Endereço</label>

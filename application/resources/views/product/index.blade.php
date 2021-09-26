@@ -46,6 +46,7 @@
         <thead>
             <tr class="text-center">
                 <th>ID</th>
+                <th>Image</th>
                 <th>Nome</th>
                 <th>Preço</th>
                 <th>Data</th>
@@ -62,6 +63,7 @@
             @foreach($products as $product)
                 <tr class="text-center">
                     <td>{{ $product->id }}</td>
+                    <td><img src="{{ $product->image }}" style="width:35px;"></td>
                     <td>{{ $product->name }}</td>
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->date }}</td>

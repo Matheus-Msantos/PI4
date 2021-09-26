@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Address;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facedes\Storage;
 
 class ProductController extends Controller
 {
@@ -30,7 +31,24 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        Product::create($request->all());
+        if($request->image) {
+            $image = $request->file('image')->store('product');
+            $image = "storage/" . $image;
+        }else {
+            $image  = "storage/product/imageDefault.jpg";
+        }
+
+        Product::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'time' => $request->time,
+            'date' => $request->date,
+            'classification' => $request->classification,
+            'category_id' => $request->category_id,
+            'price' => $request->price,
+            'address_id' => $request->address_id,
+            'image' => $image
+        ]);
         session()->flash('success', 'Evento cadastrado com sucesso!');
         return redirect(Route('product.index'));
 
@@ -59,7 +77,26 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
-        $product->update($request->all());
+        if($request->image) {
+            $image = $request->file('image')->store('product');
+            $image = "storage/" . $image;
+            if($product->image != "storage/product/imageDefault.jpg")
+                Storage::delete(str_replace('storage/', '',$product->image));
+        }else {
+            $image = $product->image;
+        }
+
+        $product->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'time' => $request->time,
+            'date' => $request->date,
+            'classification' => $request->classification,
+            'category_id' => $request->category_id,
+            'price' => $request->price,
+            'address_id' => $request->address_id,
+            'image' => $image
+        ]);
         session()->flash('success', 'Evento atualizado com sucesso!');
         return redirect(Route('product.index'));
     }

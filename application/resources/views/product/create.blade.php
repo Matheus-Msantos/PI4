@@ -14,38 +14,39 @@
     <h1 class="mt-5 text-center text-uppercase fw-bold">Cadastrar Evento</h1>
     <a href="{{ Route('product.index') }}" class="mb-3 mt-3 btn btn-primary fw-bold">Voltar</a>
 
-    <form method="POST" action="{{ Route('product.store') }}"s>
+    <form method="POST" action="{{ Route('product.store') }}" enctype="multipart/form-data">
         @csrf
 
 
             <label class="h6 form-label">Nome</label>
-            <input class="mb-3 form-control" id="nome" name="name" type="text" placeholder="nome" / required>
+            <input class="mb-3 form-control" id="nome" name="name" type="text" placeholder="nome" required>
 
 
 
             <label class="h6 form-label">Preço</label>
-            <input class="mb-3 form-control" id="preco" name="price" type="number" placeholder="Preço"/ required>
+            <input class="mb-3 form-control" id="preco" name="price" type="number" placeholder="Preço" required>
 
 
 
             <label class="h6 form-label">Hora</label>
-            <input class="mb-3 form-control" id="hora" name="time" type="text" placeholder="16:20h" / required>
+            <input class="mb-3 form-control" id="hora" name="time" type="text" placeholder="16:20h"  required>
 
 
 
             <label class="h6 form-label">Data</label>
-            <input class="mb-3 form-control" id="data" name="date" type="text" placeholder="DD/MM/YYYY" / required>
+            <input class="mb-3 form-control" id="data" name="date" type="text" placeholder="DD/MM/YYYY" required>
 
 
 
             <label class="h6 form-label">Classificação</label>
-            <input class="mb-3 form-control" id="classification" name="classification" type="text" placeholder="+18" / required>
+            <input class="mb-3 form-control" id="classification" name="classification" type="text" placeholder="+18"  required>
 
 
             <label class="h6 form-label">Descrição</label>
             <textarea class="mb-3 form-control" name="description"s rows="5"></textarea>
 
-
+            <label class="h6 form-label">Imagem</label>
+            <input class="mb-3 form-control" id="image" name="image" type="file">
 
             <label class="h6 form-label">Categoria</label>
             <select class="mb-3 form-control" id="category" name="category_id" class="form-select" aria-label="Default select example">
