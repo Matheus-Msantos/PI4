@@ -5,14 +5,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\UserController;
 
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
 
 /*-- Route Product --*/
-Route::get('/product', [ProductController::class, 'indexApi']);
+Route::group([ 'middleware' =>'auth:sanctum'], function(){
+    Route::get('/product', [ProductController::class, 'indexApi']);
+});
+Route::post('/login', [UserController::class, 'login']);
+Route::post('/user', [UserController::class, 'store']);
+
+/*-- Route Product --*/
 Route::post('/product', [ProductController::class, 'storeApi']);
 Route::get('/product/{product}', [ProductController::class, 'show']);
 Route::put('/product/{product}', [ProductController::class, 'updateApi']);
