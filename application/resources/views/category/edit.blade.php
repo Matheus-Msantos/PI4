@@ -11,16 +11,18 @@
     <title>Portal ADM - Editar Categoria</title>
 </head>
 <body class="container">
-    <h1 class="mt-5 text-center text-uppercase fw-bold">Editar Categoria</h1>
-    <a href="{{ Route('category.index') }}" class="mb-3 btn btn-primary">Voltar</a>
+    <a href="{{ Route('category.index') }}" class="mt-5 btn btn-secondary fw-bold text-uppercase" style="border-radius: 30px">Voltar</a>
+    <h1 class="mb-5 mt-5 text-center fw-bold" id="title">Editar Categoria</h1>
 
     <form method="POST" action="{{ Route('category.update', $category->id) }}">
         @csrf
 
-        <label class="h6 form-label">Nome</label>
-        <input class="mb-3 form-control" id="nome" name="name" type="text" placeholder="nome" value='{{ $category->name }}'/>
+        <input class="mb-3 form-control" id="nome" name="name" type="text" placeholder="nome" value='{{ $category->name }}'/ style="border-radius: 20px">
 
-        <button type="submit" class="btn btn-secondary">Atualizar</button>
+        <div class="mt-5 d-flex justify-content-end">
+            <button type="submit" class="btn btn-secondary text-uppercase fw-bold text-white" style="border-radius: 20px">Cancelar</button>
+            <button type="submit" class="btn btn-warning text-uppercase fw-bold text-white" style="border-radius: 20px">Salvar</button>
+        </div>
     </form>
 </body>
 </html>

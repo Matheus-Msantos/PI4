@@ -10,17 +10,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <title>Portal ADM - Cadastrar Categoria</title>
 </head>
+
 <body class="container">
-    <h1 class="mt-5 text-center text-uppercase fw-bold">Cadastrar Categoria</h1>
-    <a href="{{ Route('category.index') }}" class="mb-3 btn btn-primary">Voltar</a>
+    <a href="{{ Route('category.index') }}" class="mt-5 btn btn-secondary fw-bold text-uppercase text-center" style="border-radius: 30px">Voltar</a>
+    <h1 class="mb-5 mt-5 text-center fw-bold" id="title">Cadastrar Categoria</h1>
 
     <form method="POST" action="{{ Route('category.store') }}">
         @csrf
 
-        <label class="h6 form-label">Nome</label>
-        <input class="mb-3 form-control" id="nome" name="name" type="text" placeholder="nome" />
+        <input class="mb-3 form-control" id="nome" name="name" type="text" placeholder="nome" / style="border-radius: 20px">
 
-        <button type="submit" class="btn btn-secondary">Cadastrar</button>
+        <div class="mt-5 d-flex justify-content-end">
+            <button type="submit" class="btn btn-warning text-uppercase fw-bold text-white" style="border-radius: 20px">Cadastrar</button>
+        </div>
     </form>
 </body>
 </html>
