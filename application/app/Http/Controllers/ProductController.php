@@ -6,16 +6,13 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Address;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facedes\Storage;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
 
     public function index()
     {
-
-        dd(auth('sanctum')->user());
-
         return view('product.index')->with('products', Product::all());
     }
 
@@ -35,10 +32,10 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         if($request->image) {
-            $image = $request->file('image')->store('product');
-            $image = "storage/" . $image;
+            $image = $request->file('image')->store('/public/product');
+            $image = str_replace('public/', 'storage/', $image);
         }else {
-            $image  = "storage/product/imageDefault.jpg";
+            $image  = "storage/imageDefault.jpg";
         }
 
         Product::create([
@@ -61,7 +58,6 @@ class ProductController extends Controller
 
     public function storeApi(Request $request) {
         $product = Product::create($request->all());
-        $address = Address::create($request->all());
         return response()->json($product);
     }
 
@@ -81,10 +77,10 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         if($request->image) {
-            $image = $request->file('image')->store('product');
-            $image = "storage/" . $image;
-            if($product->image != "storage/product/imageDefault.jpg")
-                Storage::delete(str_replace('storage/', '',$product->image));
+            $image = $request->file('image')->store('/public/product');
+            $image = str_replace('public/','storage/', $image);
+            if($product->image != "storage/imageDefault.jpg")
+                Storage::delete(str_replace('storage/', 'public/',$product->image));
         }else {
             $image = $product->image;
         }
@@ -114,6 +110,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
+        Storage::delete(str_replace('storage/', 'public/',$product->image));
         session()->flash('success', 'Evento deletado com sucesso!');
         return redirect(Route('product.index'));
     }
