@@ -62,7 +62,26 @@ class UserController extends Controller
             'device_name' => 'required'
         ]);
 
-        $user = User::create($request->all ());
+        if($request->image) {
+            $image = $request->file('image')->store('/public/user');
+            $image = str_replace('public/', 'storage/', $image);
+        }else {
+            $image  = "storage/imageDefault.jpg";
+        }
+
+        if($request->isAdmin) {
+            $isAdmin = $request->isAdmin;
+        }else {
+            $isAdmin = 0;
+        }
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            'image' => $image,
+            'isAdmin' => $isAdmin
+        ]);
 
         return response()->json( [
             'user'=> $user,
@@ -83,18 +102,27 @@ class UserController extends Controller
         return redirect(Route('user.index'));
     }
 
-    /*
-    function update (User $user, Request $request){
-        $request->validate([
-            'email' => 'required|email',
-            'name'=> 'required|max:255',
-            'password' => 'required|min:8',
-        ]);
+
+    function updateApi (User $user, Request $request){
+        if($request->image) {
+            $image = $request->file('image')->store('/public/user');
+            $image = str_replace('public/','storage/', $image);
+            if($user->image != "storage/imageDefault.jpg")
+                Storage::delete(str_replace('storage/', 'public/',$user->image));
+        }else {
+            $image = $user->image;
+        }
+
+        if($request->isAdmin) {
+            $isAdmin = $request->isAdmin;
+        }else {
+            $isAdmin = 0;
+        }
 
         $user->update($request->all());
-    }
-    */
 
+        return response()->json($user);
+    }
 
     public function destroy(User $user)
     {
@@ -102,10 +130,17 @@ class UserController extends Controller
         return redirect(Route('user.index'));
     }
 
+    public function destroyApi(User $user)
+    {
+        $user->delete();
+        return response()->json($user);
+    }
+
 
     function login(Request $request){
+
         $request->validate([
-            'email' => 'required|email|unique:users',
+            'email' => 'required',
             'password' => 'required',
             'device_name' => 'required'
         ]);

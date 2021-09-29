@@ -10,16 +10,14 @@ use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         DB::table('users')->insert([
             'name' => 'Admin',
-            'email' => 'admin',
-            'password' => Hash::make('12345678')
-        ]);    
+            'email' => 'admin@email.com',
+            'password' => Hash::make('12345678'),
+            'image' => 'storage/imageDefault.jpg',
+            'isAdmin' => 1
+        ]);
+    }
 }

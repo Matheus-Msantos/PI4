@@ -1,5 +1,5 @@
 :root {
-    --orange: #DF3A01,
+    --orange: #df3a01;
 }
 
 #title {
@@ -10,14 +10,13 @@
     background-color: var(--orange) !important;
 }
 
-
 /* botao search */
 
-.navbar-inverse .navbar-nav>li>a {
+.navbar-inverse .navbar-nav > li > a {
     color: white !important;
 }
 
-.navbar-inverse .navbar-nav>li>a:hover {
+.navbar-inverse .navbar-nav > li > a:hover {
     text-decoration: underline;
 }
 
@@ -37,5 +36,5 @@
 }
 
 .navbar-inverse {
-    background-color: #3A1B37;
+    background-color: #3a1b37;
 }

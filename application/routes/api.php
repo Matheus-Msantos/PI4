@@ -10,12 +10,15 @@ use App\Http\Controllers\UserController;
 
 
 
-/*-- Route Product --*/
+/*-- Route user e auth --*/
 Route::group([ 'middleware' =>'auth:sanctum'], function(){
     Route::get('/product', [ProductController::class, 'indexApi']);
 });
+
 Route::post('/login', [UserController::class, 'login']);
-Route::post('/user', [UserController::class, 'store']);
+Route::post('/user', [UserController::class, 'storeApi']);
+Route::put('/user/{user}', [UserController::class, 'updateApi']);
+Route::delete('/user/{user}', [UserController::class, 'destroyApi']);
 
 /*-- Route Product --*/
 Route::post('/product', [ProductController::class, 'storeApi']);

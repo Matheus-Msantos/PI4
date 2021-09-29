@@ -16,7 +16,15 @@
 
     <form method="POST" action="{{ Route('product.store') }}" enctype="multipart/form-data">
         @csrf
-
+            <a href="{{ Route('address.create') }}" target="_blank" class="mb-3 mt-3 btn btn-primary fw-bold">endereço</a>
+            <label>Endereço</label>
+                <select class="form-control" id="address" name="address_id">
+                @foreach($addresses as $address)
+                    <option value="{{ $address->id }}">
+                        {{ $address->street }}
+                    </option>
+                @endforeach
+            </select>
 
             <label class="h6 form-label">Nome</label>
             <input class="mb-3 form-control" id="nome" name="name" type="text" placeholder="nome" required>
@@ -56,18 +64,6 @@
                 </option>
             @endforeach
             </select>
-
-
-
-            <label>Endereço</label>
-            <select class="form-control" id="address" name="address_id">
-            @foreach($addresses as $address)
-                <option value="{{ $address->id }}">
-                    {{ $address->street }}
-                </option>
-            @endforeach
-            </select>
-
 
         <button type="submit" class="mt-3 mb-3 btn btn-secondary fw-bold">Cadastrar</button>
     </form>
