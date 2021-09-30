@@ -9,7 +9,7 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <!-- Link Css Categoria -->
-    <link rel="stylesheet" href="css/category.css">
+    <link rel="stylesheet" href="{{ asset('css/category.css') }}">
     <!-- Link Font Awesome -->
     <script src="https://kit.fontawesome.com/8455a3d02b.js" crossorigin="anonymous"></script>
     <title>Portal ADM - Categoria</title>
@@ -30,39 +30,30 @@
         </div>
     @endif
 
-    {{-- <ul class="nav justify-content-center bg-secondary">
-        <li class="nav-item">
-            <a class="h5 nav-link active text-white fw-bold" href="{{ Route('product.index') }}">Produto</a>
-        </li>
-        <li class="nav-item">
-            <a class="h5 nav-link active text-white fw-bold" href="{{ Route('address.index') }}">Endereço</a>
-        </li>
-    </ul> --}}
+    {{-- campo para menu --}}
 
-    <form action="" class="mt-5 navbar-form navbar-right">
-        <div class="input-group">
-            <div class="input-group-btn">
-                <button class="btn btn-info">
-                <span class="glyphicon glyphicon-search"></span>
-                </button>
-            </div>
-            <input type="Search" placeholder="Search..." class="form-control" />
+    <div class="mt-5 input-group rounded justify-content-center">
+        <span class="input-group-text border-0 bg-white" id="search-addon">
+            <i class="fas fa-search"></i>
+        </span>
+        <span class="border-bottom">
+            <input type="search" class="form-control rounded text-center" placeholder="Buscar Eventos" style="border: none">
+        </span>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <h1 class="mt-5 text-center fw-bold" id="titleIndex">Lista de Categorias</h1>
+
+        <div>
+            <a href="{{ Route('category.create') }}" class="btn btn-warning text-white" id="btn-plus">
+                <i class="fas fa-plus"></i>
+            </a>
         </div>
-     </form>
-
-
-
-    <h1 class="mt-5 text-center fw-bold" id="title"s>Lista de Categorias</h1>
-
-    <div class="d-flex justify-content-end">
-        <a href="{{ Route('category.create') }}" class="btn btn-warning text-white" style="border-radius: 100%;" id="btn-plus">
-            <i class="fas fa-plus"></i>
-        </a>
     </div>
 
     <table class="table table-borderless">
         <thead>
-            <tr class="text-center text-primary">
+            <tr class="text-center text-primary text-uppercase">
                 <th>ID</th>
                 <th>Nome</th>
             </tr>
@@ -70,7 +61,7 @@
 
         <tbody>
             @foreach($categories as $category)
-                <tr class="text-center" scope="row">
+                <tr class="text-center border-bottom">
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->name }}</td>
                     <td>

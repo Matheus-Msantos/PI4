@@ -1,40 +1,44 @@
 :root {
     --orange: #df3a01;
+    --red: #FF0000;
+    --white: #FFFFFF;
+    --black: #000000;
 }
 
-#title {
-    color: var(--orange) !important;
+
+/* TITULOS */
+
+#titleIndex {
+    color: var(--orange);
+    margin-bottom: 50px;
+    margin-left: 350px;
 }
+
+#titleEdit {
+    color: var(--orange);
+}
+
+
+/* BOTÕES */
 
 #btn-plus {
-    background-color: var(--orange) !important;
+    background-color: var(--orange);
+    border-radius: 100%;
+    margin-left: 200px;
+    margin-top: 55px;
 }
+
+.btn-danger {
+    background-color: var(--red);
+}
+
 
 /* botao search */
 
-.navbar-inverse .navbar-nav > li > a {
-    color: white !important;
+.form-control {
+    width: 400px !important;
 }
 
-.navbar-inverse .navbar-nav > li > a:hover {
-    text-decoration: underline;
-}
-
-.navbar-collapse ul li {
-    padding-top: 0px;
-    padding-bottom: 0px;
-}
-
-.navbar-collapse ul li a {
-    padding-top: 0px;
-    padding-bottom: 0px;
-}
-
-.navbar-brand img {
-    width: 200px;
-    height: 40px;
-}
-
-.navbar-inverse {
-    background-color: #3a1b37;
+#nome {
+    width: 100px;
 }
