@@ -8,14 +8,14 @@
         </div>
     @endif
 
-    <ul class="nav justify-content-center bg-secondary">
+    {{-- <ul class="nav justify-content-center bg-secondary">
         <li class="nav-item">
             <a class="h5 nav-link active text-white fw-bold" href="{{ Route('category.index') }}">Categoria</a>
         </li>
         <li class="nav-item">
             <a class="h5 nav-link active text-white fw-bold" href="{{ Route('address.index') }}">Endereço</a>
         </li>
-    </ul>
+    </ul> --}}
 
     <h1 class="c-section-title  mt-5 text-center text-uppercase fw-bold">Lista de Eventos</h1>
 

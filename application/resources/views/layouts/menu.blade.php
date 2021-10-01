@@ -26,7 +26,7 @@
                         <a class="button pr-5 pl-5 btn btn-light text-primary font-weight-bold" href="#home" style="border-radius: 30px">EVENTOS</a>
                     </li>
                     <li class="mb-1 p-1">
-                        <a class="button pr-5 pl-5 btn btn-light text-primary font-weight-bold" href="#about" style="border-radius: 30px">CATEGORIAS</a>
+                        <a class="button pr-5 pl-5 btn btn-light text-primary font-weight-bold" href="{{ Route('category.index') }}" style="border-radius: 30px">CATEGORIAS</a>
                     </li>
                     <li class="mb-1 p-1">
                         <a class="button pr-5 pl-5 btn btn-light text-primary font-weight-bold" href="#events" style="border-radius: 30px">USUÁRIOS</a>
