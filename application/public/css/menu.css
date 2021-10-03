@@ -1,10 +1,10 @@
 :root {
-    --orange: #ff8000;
-    --blue: #0B0B61;
-    --red: #DF013A;
-    --white: #fff;
+    --orange: #F17604;
+    --blue: #01318B;
+    --red: #F30502;
+    --white: #F2F2F2;
     --black: #1a1a1a;
-    --gray: #fafafa
+    --gray: #B0B0B0;
 }
 
 
@@ -49,14 +49,6 @@
 }
 
 
-/* IMAGEM */
-
-
-/* #img {
-    border-style: none;
-} */
-
-
 /* BOTOES DO MENU*/
 
 .sidebar-nav li a {
@@ -68,6 +60,15 @@
 
 .button:hover {
     background-color: var(--orange) !important;
+}
+
+
+/*IMAGEM*/
+
+.img-thumbnail {
+    border-radius: 100%;
+    border-color: var(--blue);
+    background-color: var(--blue);
 }
 
 
