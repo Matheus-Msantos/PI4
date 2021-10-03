@@ -2,9 +2,10 @@
     --orange: #F17604;
     --blue: #01318B;
     --red: #F30502;
-    --white: #F2F2F2;
+    --white: #FFFFFF;
     --black: #1a1a1a;
     --gray: #B0B0B0;
+    --grayLight: #F2F2F2;
 }
 
 
@@ -22,7 +23,7 @@
 /* CRIA O X PARA FECHAR O MENU */
 
 #wrapper.toggled {
-    padding-left: 220px;
+    padding-left: 255px;
 }
 
 #sidebar-wrapper {
@@ -41,7 +42,7 @@
 }
 
 #wrapper.toggled #sidebar-wrapper {
-    width: 220px;
+    width: 255px;
 }
 
 .navbar {
@@ -51,15 +52,22 @@
 
 /* BOTOES DO MENU*/
 
-.sidebar-nav li a {
+.button {
+    color: var(--blue);
     display: block;
+    height: 22px;
+    font-size: 14px;
     text-decoration: none;
+    text-align: center;
     padding: 0px 15px 0px 30px;
-    ;
+    background-color: var(--grayLight);
 }
 
 .button:hover {
-    background-color: var(--orange) !important;
+    color: var(--white);
+    text-decoration: none;
+    border-color: var(--orange);
+    background-color: var(--orange);
 }
 
 
@@ -74,16 +82,19 @@
 
 /*BOTAO SAIR*/
 
-.btn-secundary {
+.btn-sair {
     display: block;
-    background-color: var(--gray) !important;
+    color: var(--white);
+    background-color: var(--gray);
     text-decoration: none;
     padding: 0px 15px 0px 30px;
 }
 
-.btn-secundary:hover {
+.btn-sair:hover {
     color: var(--white);
-    background-color: var(--red) !important;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--red);
 }
 
 
@@ -94,8 +105,8 @@
     top: 20px;
     z-index: 999;
     display: block;
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     margin-left: 15px;
     background: transparent;
     border: none;
@@ -228,7 +239,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--gray);
+    background-color: rgba(241, 118, 4, .5);
     opacity: 0.8;
     z-index: 1;
 }
