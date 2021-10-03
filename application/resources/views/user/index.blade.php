@@ -1,6 +1,8 @@
 @extends('layouts.head')
 @section('content')
-<body class="container">
+{{-- <link rel="stylesheet" href="{{asset('css/base.css')}}"> --}}
+
+<body class="c-section-container">
 
     @if(session()->has('success'))
         <div class="alert alert-info" role="alert">
@@ -8,49 +10,32 @@
         </div>
     @endif
 
-    <ul class="nav justify-content-center bg-secondary">
-        <li class="nav-item">
-            <a class="h5 nav-link active text-white fw-bold" href="{{ Route('category.index') }}">Categoria</a>
-        </li>
+    <h1 class="c-section-title mt-5 text-center text-uppercase fw-bold">Lista de Usuarios</h1>
 
-        <li class="nav-item">
-            <a class="h5 nav-link active text-white fw-bold" href="{{ Route('address.index') }}">Endereço</a>
-        </li>
+    <a href="{{ Route('user.create') }}" class="c-section-table--button btn btn-primary mb-3 fw-bold">Cadastrar Usuario</a>
 
-        <li class="nav-item">
-            <a class="h5 nav-link active text-white fw-bold" href="{{ Route('product.index') }}">Produtos</a>
-        </li>
-    </ul>
-
-    <h1 class="mt-5 text-center text-uppercase fw-bold">Lista de Usuarios</h1>
-
-
-
-    <a href="{{ Route('user.create') }}" class="btn btn-primary mb-3 fw-bold">Cadastrar Usuario</a>
-
-    <table class="table table-bordered border-primary">
-        <thead>
-            <tr class="text-center">
-                <th>ID</th>
-                <th>Image</th>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Admin</th>
-                <th>Ação</th>
+    <table class="c-section-table table table-borderless">
+        <thead class="c-section-table--head">
+            <tr class="c-section-table--row text-center text-primary text-uppercase">
+                <th class="c-section-table--header">ID</th>
+                <th class="c-section-table--header">Image</th>
+                <th class="c-section-table--header">Nome</th>
+                <th class="c-section-table--header">Email</th>
+                <th class="c-section-table--header">Admin</th>
             </tr>
         <thead>
 
-        <tbody>
+        <tbody class="c-section-table--body">
             @foreach($users as $user)
-                <tr class="text-center">
-                    <td>{{ $user->id }}</td>
-                    <td><img src="{{ $user->image }}"></td>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ $user->isAdmin }}</td>
-                    <td>
-                        <a href="{{ Route('user.edit', $user->id) }}" class="btn btn-warning">Editar</a>
-                        <a onclick="remove('{{ Route('user.destroy', $user->id) }}');" href="#" class="btn btn-danger">Excluir</a>
+                <tr class="c-section-table--head text-center border-bottom">
+                    <td class="c-section-table--data">{{ $user->id }}</td>
+                    <td class="c-section-table--data"><img src="{{ $user->image }}" style="width: 120px"></td>
+                    <td class="c-section-table--data">{{ $user->name }}</td>
+                    <td class="c-section-table--data">{{ $user->email }}</td>
+                    <td class="c-section-table--data">{{ $user->isAdmin }}</td>
+                    <td class="c-section-table--data">
+                        <a href="{{ Route('user.edit', $user->id) }}" class="c-section-table--button btn btn-warning">Editar</a>
+                        <a onclick="remove('{{ Route('user.destroy', $user->id) }}');" href="#" class="c-section-table--button btn btn-danger">Excluir</a>
                     </td>
                 </tr>
             @endforeach
