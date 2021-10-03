@@ -3,9 +3,10 @@
 
 <body class="c-section-container">
 
-    <h1 class="c-section-title mt-5 text-center text-uppercase fw-bold">Editar Evento</h1>
+    <a href="{{ Route('product.index') }}" class="c-section-button--back">Voltar</a>
 
-    <a href="{{ Route('product.index') }}" class="c-section-button--back mb-3 btn btn-primary">Voltar</a>
+    <h1 class="c-section-title--form">Editar Evento</h1>
+
 
     <form class="c-section-form" method="POST" action="{{ Route('product.update', $product->id) }}" enctype="multipart/form-data">
         @csrf
@@ -59,8 +60,11 @@
             @endforeach
         </select>
 
+        <div class="c-section-group-buttom">
+            <a class="c-section-button--cancel" href="{{ Route('product.index') }}">Cancelar</a>
+            <button type="submit" class="c-section-button--salve">Atualizar</button>
+        </div>
 
-        <button type="submit" class="c-section-button--salve mb-3 btn btn-secondary">Atualizar</button>
     </form>
 </body>
 @endsection

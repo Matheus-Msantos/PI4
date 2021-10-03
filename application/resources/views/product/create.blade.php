@@ -2,14 +2,13 @@
 @section('content')
 <body class="c-section-container">
 
-    <h1 class="c-sectino-title mt-5 text-center text-uppercase fw-bold">Cadastrar Evento</h1>
+    <a href="{{ Route('product.index') }}" class="c-section-button--back">Voltar</a>
 
-    <a href="{{ Route('product.index') }}" class="c-section-button--back mb-3 mt-3 btn btn-primary fw-bold">Voltar</a>
+    <h1 class="c-section-title--form">Cadastrar Evento</h1>
+
 
     <form class="c-section-form" method="POST" action="{{ Route('product.store') }}" enctype="multipart/form-data">
         @csrf
-
-            <a href="{{ Route('address.create') }}" target="_blank" class="c-section-button-address mb-3 mt-3 btn btn-primary fw-bold">endereço</a>
 
             <label class="c-section-label">Endereço</label>
             <select class="c-section-select form-control" id="address" name="address_id">
@@ -19,6 +18,10 @@
                     </option>
                 @endforeach
             </select>
+
+            <span class="c-section-button-address--text">Não encontrou o endeço? Cadastre!</span>
+            <a href="{{ Route('address.create') }}" target="_blank" class="c-section-button-address">endereço</a>
+
 
             <label class="c-section-label h6 form-label">Nome</label>
             <input class="c-section-input mb-3 form-control" id="nome" name="name" type="text" placeholder="nome" required>
@@ -51,7 +54,7 @@
             <input class="c-section-input mb-3 form-control" id="image" name="image" type="file">
 
             <label class="c-section-label h6 form-label">Categoria</label>
-            <select class="c-section-select c-section-select mb-3 form-control" id="category" name="category_id" class="form-select" aria-label="Default select example">
+            <select class="c-section-select form-control" id="category" name="category_id" class="form-select" aria-label="Default select example">
             @foreach($categories as $category)
                 <option value="{{ $category->id }}">
                     {{ $category->name }}
@@ -59,7 +62,10 @@
             @endforeach
             </select>
 
-        <button type="submit" class="c-section-button--salve mt-3 mb-3 btn btn-secondary fw-bold">Cadastrar</button>
+            <div class="c-section-group-buttom">
+                <a class="c-section-button--cancel" href="{{ Route('product.index') }}">Cancelar</a>
+                <button type="submit" class="c-section-button--salve">Salvar</button>
+            </div>
     </form>
 </body>
 @endsection
