@@ -33,6 +33,7 @@
             <tr class="c-section-table--row">
                 <th class="c-section-table--header">ID</th>
                 <th class="c-section-table--header">Nome</th>
+                <th class="c-section-table--header">Ação</th>
             </tr>
         <thead>
 

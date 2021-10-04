@@ -21,6 +21,7 @@
                 <th class="c-section-table--header">Nome</th>
                 <th class="c-section-table--header">Email</th>
                 <th class="c-section-table--header">Admin</th>
+                <th class="c-section-table--header">Ação</th>
             </tr>
         <thead>
 
