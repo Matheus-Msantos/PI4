@@ -1,11 +1,10 @@
 @extends('layouts.head')
 @section('content')
-{{-- <link rel="stylesheet" href="{{asset('css/base.css')}}"> --}}
 
 <body class="c-section-container">
 
     @if(session()->has('success'))
-        <div class="alert alert-info" role="alert">
+        <div class="c-section-alert alert" role="alert">
             {{ session()->get('success') }}
         </div>
     @endif
@@ -20,18 +19,18 @@
     </div>
 
     <div class="d-flex justify-content-center">
-        <h1 class="c-section-title mt-5 text-center fw-bold" id="titleIndex">Lista de Categorias</h1>
+        <h1 class="c-section-title">Lista de Categorias</h1>
 
         <div>
-            <a href="{{ Route('category.create') }}" class="c-section-table--button btn btn-warning text-white" id="btn-plus">
+            <a href="{{ Route('category.create') }}" class="c-section-button--create mt-4">
                 <i class="fas fa-plus"></i>
             </a>
         </div>
     </div>
 
-    <table class="c-section-table table table-borderless">
+    <table class="c-section-table table table-hover">
         <thead class="c-section-table--head">
-            <tr class="c-section-table--row text-center text-primary text-uppercase">
+            <tr class="c-section-table--row">
                 <th class="c-section-table--header">ID</th>
                 <th class="c-section-table--header">Nome</th>
             </tr>
@@ -39,18 +38,18 @@
 
         <tbody class="c-section-table--body">
             @foreach($categories as $category)
-                <tr class="c-section-table--head text-center border-bottom">
+                <tr class="c-section-table--head">
                     <td class="c-section-table--data">{{ $category->id }}</td>
                     <td class="c-section-table--data">{{ $category->name }}</td>
                     <td class="c-section-table--data">
-                        <a href="#" class="c-section-table--button btn btn-success" style="border-radius: 100%">
+                        {{-- <a href="#" class="c-section-table--button btn btn-success" style="border-radius: 100%">
                             <i class="fas fa-eye text-white"></i>
+                        </a> --}}
+                        <a href="{{ Route('category.edit', $category->id) }}" class="c-section-table--button-edit" style="border-radius: 100%">
+                            <i class="fas fa-pencil-alt fa-sm"></i>
                         </a>
-                        <a href="{{ Route('category.edit', $category->id) }}" class="c-section-table--button btn btn-warning" style="border-radius: 100%">
-                            <i class="fas fa-pen text-white"></i>
-                        </a>
-                        <a onclick="remove('{{ Route('category.destroy', $category->id) }}');" href="#" class="c-section-table--button btn btn-danger" style="border-radius: 100%">
-                            <i class="fas fa-trash-alt text-white"></i>
+                        <a onclick="remove('{{ Route('category.destroy', $category->id) }}');" href="#" class="c-section-table--button-delete" style="border-radius: 100%">
+                            <i class="fas fa-trash fa-sm"></i>
                         </a>
                     </td>
                 </tr>
