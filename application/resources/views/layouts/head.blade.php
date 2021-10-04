@@ -27,10 +27,10 @@
         <!-- Sidebar -->
         <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
             <ul class="nav sidebar-nav">
-                <div class="m-4 mb-5">
+                <div class="m-4">
                     <img class="img-thumbnail" src="{{ asset('image/gnose.png') }}" alt="Brand">
                 </div>
-                <div class="mt-5 mb-5">
+                <div class="m-4">
                     <li class="mb-1 p-1">
                         <a class="button pr-5 pl-5 font-weight-bold" href="{{ Route('product.index') }}" style="border-radius: 30px">EVENTOS</a>
                     </li>
@@ -42,7 +42,7 @@
                     </li>
                 </div>
             </ul>
-            <div class="p-4 mt-5">
+            <div class="p-4 m-4">
                 <a class="pr-5 pl-5 btn-sair font-weight-bold" href="#sair" style="border-radius: 30px">SAIR</a>
             </div>
         </nav>
@@ -55,7 +55,7 @@
                      <span class="hamb-middle"></span>
                      <span class="hamb-bottom"></span>
                  </button>
-            <!-- APAGAR ESSA DIV CONTAINER, É O CONTEUDO DO BORY -->
+
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
