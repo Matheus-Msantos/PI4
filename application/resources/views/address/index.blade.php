@@ -1,54 +1,48 @@
 @extends('layouts.head')
 @section('content')
-<body class="container">
+<body class="c-section-container">
 
     @if(session()->has('success'))
-        <div class="alert alert-info" role="alert">
+        <div class="c-section-alert alert" role="alert">
             {{ session()->get('success') }}
         </div>
     @endif
 
-    <ul class="nav justify-content-center bg-secondary">
-        <li class="nav-item">
-            <a class="h5 nav-link active text-white fw-bold" href="{{ Route('product.index') }}">Produtos</a>
-        </li>
-        <li class="nav-item">
-            <a class="h5 nav-link active text-white fw-bold" href="{{ Route('category.index') }}">Categorias</a>
-        </li>
-    </ul>
+    <h1 class="c-section-title">Lista de Endereço</h1>
 
-    <h1 class="mt-5 text-center text-uppercase fw-bold">Lista de Endereço</h1>
+    <a href="{{ Route('address.create') }}" class="c-section-button--create">Cadastrar Endereço</a>
 
-    <a href="{{ Route('address.create') }}" class="mb-3 btn btn-primary">Cadastrar Endereço</a>
-
-    <table class="table table-bordered border-primary">
-        <thead>
-            <tr class="text-center">
-                <th>ID</th>
-                <th>Rua / Av</th>
-                <th>Bairro</th>
-                <th>Número</th>
-                <th>Cidade</th>
-                <th>Estado</th>
-                <th>Pais</th>
-                <th>Ação</th>
+    <table class="c-section-table table">
+        <thead class="c-section-table--head">
+            <tr class="c-section-table--row">
+                <th class="c-section-table--header">ID</th>
+                <th class="c-section-table--header">Rua / Av</th>
+                <th class="c-section-table--header">Bairro</th>
+                <th class="c-section-table--header">Número</th>
+                <th class="c-section-table--header">Cidade</th>
+                <th class="c-section-table--header">Estado</th>
+                <th class="c-section-table--header">Pais</th>
+                <th class="c-section-table--header">Ação</th>
             </tr>
         <thead>
 
-        <tbody>
+        <tbody class="c-section-table--body">
             @foreach($addresses as $address)
-                <tr class="text-center">
-                    <td>{{ $address->id }}</td>
-                    <td>{{ $address->street }}</td>
-                    <td>{{ $address->district }}</td>
-                    <td>{{ $address->number }}</td>
-                    <td>{{ $address->city }}</td>
-                    <td>{{ $address->state }}</td>
-                    <td>{{ $address->country }}</td>
-                    <td>
-                        <a href="#" class="btn btn-success">visualizar<a>
-                        <a href="{{ Route('address.edit', $address->id) }}" class="btn btn-warning">Editar<a>
-                        <a onclick="remove('{{ Route('address.destroy', $address->id) }}');" href="#" class="btn btn-danger">Excluir</a>
+                <tr class="c-section-table--head">
+                    <td class="c-section-table--data">{{ $address->id }}</td>
+                    <td class="c-section-table--data">{{ $address->street }}</td>
+                    <td class="c-section-table--data">{{ $address->district }}</td>
+                    <td class="c-section-table--data">{{ $address->number }}</td>
+                    <td class="c-section-table--data">{{ $address->city }}</td>
+                    <td class="c-section-table--data">{{ $address->state }}</td>
+                    <td class="c-section-table--data">{{ $address->country }}</td>
+                    <td class="c-section-table--data">
+                    <a href="{{ Route('address.edit', $address->id) }}" class="c-section-table--button-edit">
+                            <i class="fas fa-pencil-alt fa-sm"></i>
+                        </a>
+                        <a onclick="remove('{{ Route('address.destroy', $address->id) }}');" href="#" class="c-section-table--button-delete">
+                            <i class="fas fa-trash fa-sm"></i>
+                        </a>
                     </td>
                 </tr>
             @endforeach

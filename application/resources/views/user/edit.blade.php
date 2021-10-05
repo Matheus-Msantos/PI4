@@ -10,8 +10,8 @@
     <form class="c-section-form" method="POST" action="{{ Route('user.update', $user->id) }}" enctype="multipart/form-data">
         @csrf
 
-        <label class="c-section-label h6 form-label">Admin</label>
-        <input class="c-section-input mb-3 form-control" id="isAdmin" name="isAdmin" type="number" placeholder="0 ou 1" value="{{ $user->isAdmin }}">
+        <label class="c-section-label form-label">Admin</label>
+        <input class="c-section-input form-control" id="isAdmin" name="isAdmin" type="number" placeholder="0 ou 1" value="{{ $user->isAdmin }}">
 
         <div class="c-section-group-buttom">
             <a class="c-section-button--cancel" href="{{ Route('user.index') }}">Cancelar</a>

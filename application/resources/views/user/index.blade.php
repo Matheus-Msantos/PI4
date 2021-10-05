@@ -13,7 +13,7 @@
 
     <a href="{{ Route('user.create') }}" class="c-section-button--create">Cadastrar Usuario</a>
 
-    <table class="c-section-table table table-hove">
+    <table class="c-section-table table">
         <thead class="c-section-table--head">
             <tr class="c-section-table--row">
                 <th class="c-section-table--header">ID</th>

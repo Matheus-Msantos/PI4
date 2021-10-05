@@ -38,6 +38,9 @@
                         <a class="button pr-5 pl-5 font-weight-bold" href="{{ Route('category.index') }}" style="border-radius: 30px">CATEGORIAS</a>
                     </li>
                     <li class="mb-1 p-1">
+                        <a class="button pr-5 pl-5 font-weight-bold" href="{{ Route('address.index') }}" style="border-radius: 30px">ENDEREÇOS</a>
+                    </li>
+                    <li class="mb-1 p-1">
                         <a class="button pr-5 pl-5 font-weight-bold" href="{{ Route('user.index') }}" style="border-radius: 30px">USUÁRIOS</a>
                     </li>
                 </div>

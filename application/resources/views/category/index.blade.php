@@ -9,15 +9,6 @@
         </div>
     @endif
 
-    <div class="mt-5 input-group rounded justify-content-center">
-        <span class="input-group-text border-0 bg-white" id="search-addon">
-            <i class="fas fa-search"></i>
-        </span>
-        <span class="border-bottom">
-            <input type="search" class="form-control rounded text-center" placeholder="Buscar Eventos" style="border: none">
-        </span>
-    </div>
-
     <div class="d-flex justify-content-center">
         <h1 class="c-section-title">Lista de Categorias</h1>
 

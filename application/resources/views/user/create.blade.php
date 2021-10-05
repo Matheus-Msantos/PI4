@@ -27,7 +27,7 @@
 
             <div class="c-section-group-buttom">
                 <a class="c-section-button--cancel" href="{{ Route('user.index') }}">Cancelar</a>
-                <button type="submit" class="c-section-button--salve">Cadastrar</button>
+                <button type="submit" class="c-section-button--salve">Salvar</button>
             </div>
 
     </form>
