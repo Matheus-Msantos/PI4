@@ -29,7 +29,7 @@
             @foreach($users as $user)
                 <tr class="c-section-table--head">
                     <td class="c-section-table--data">{{ $user->id }}</td>
-                    <td class="c-section-table--data"><img src="{{ $user->image }}" style="width: 120px"></td>
+                    <td class="c-section-table--data"><img class="c-section-table--image" src="{{ $user->image }}"></td>
                     <td class="c-section-table--data">{{ $user->name }}</td>
                     <td class="c-section-table--data">{{ $user->email }}</td>
                     <td class="c-section-table--data">{{ $user->isAdmin }}</td>

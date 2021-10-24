@@ -244,3 +244,9 @@
     color: var(--white);
     text-decoration: none;
 }
+
+.c-section-table--image {
+    width: 75px;
+    height: 75px;
+    border-radius: 20%;
+}

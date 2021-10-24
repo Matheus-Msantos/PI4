@@ -35,7 +35,7 @@
 
                     <td class="c-section-table--data">{{ $product->id }}</td>
                     <td class="c-section-table--data">
-                        <img class="c-section-table--image" src="{{ $product->image }}" style="width:35px;">
+                        <img class="c-section-table--image" src="{{ $product->image }}">
                     </td>
                     <td class="c-section-table--data">{{ $product->name }}</td>
                     <td class="c-section-table--data">{{ $product->price }}</td>
