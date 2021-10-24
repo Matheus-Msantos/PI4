@@ -1,0 +1,252 @@
+/*--- Fonts ---*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+/*--- Color ---*/
+:root {
+    --orange: #f17604;
+    --red: #f30502;
+    --white: #ffffff;
+    --black: #000000;
+    --blue: #01318b;
+    --blue-opacity-60: rgba(1, 49, 139, 0.6);
+    --grey: #707070;
+    --grey-secondary: #b0b0b0;
+    --grey-opacity-20: rgba(201, 201, 201, 0.1);
+    --yellow: #f1ba04;
+}
+
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+/*--- Index ---*/
+.c-section-alert {
+    color: #01381e;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 700;
+    margin-top: 12px;
+    background: rgba(25, 135, 84, 0.5);
+}
+
+.c-section-container {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.c-section-title {
+    color: var(--orange);
+    text-align: center;
+    font-size: 35px;
+    margin-top: 57px;
+    margin-bottom: 126px;
+}
+
+.c-section-title--form {
+    color: var(--orange);
+    text-align: center;
+    font-size: 35px;
+    margin-top: 57px;
+    margin-bottom: 61px;
+}
+
+.c-section-button--create {
+    position: absolute;
+    background: url("../icons/icon-button-create.png");
+    background-position: center;
+    background-size: 46px;
+    background-repeat: no-repeat;
+    padding: 25px;
+    font-size: 0;
+    right: 0;
+    top: 69px;
+}
+
+.c-section-table--header {
+    color: var(--blue);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 19px;
+    border: 0 !important;
+}
+
+.c-section-table--data {
+    color: var(--black);
+    text-align: center;
+    font-size: 17px;
+    font-weight: 400;
+    border-top: 1px solid var(--grey) !important;
+    vertical-align: middle !important;
+}
+
+.c-section-table--button-edit {
+    display: inline-block;
+    color: white;
+    background: var(--yellow);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.c-section-table--button-edit:hover {
+    color: black;
+    transition: all 0.5s;
+}
+
+.c-section-table--button-delete {
+    display: inline-block;
+    color: white;
+    background: var(--red);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+}
+
+.c-section-table--button-delete:hover {
+    color: black;
+    transition: all 0.5s;
+}
+
+/*--- Create ---*/
+.c-section-button--back {
+    display: block;
+    width: 104px;
+    height: 30px;
+    color: var(--white);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 30px;
+    background: var(--blue-opacity-60);
+    border-radius: 22px;
+    margin-top: 32px;
+}
+
+.c-section-button--back:hover {
+    color: var(--white);
+    text-decoration: none;
+    background: var(--blue);
+}
+
+.c-section-button-address {
+    display: block;
+    width: 104px;
+    height: 30px;
+    color: var(--blue);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 30px;
+    border: 1px solid var(--blue);
+    border-radius: 22px;
+    margin-bottom: 20px;
+}
+
+.c-section-button-address:hover {
+    text-decoration: none;
+}
+
+.c-section-button-address--text {
+    display: block;
+    color: var(--grey);
+    font-size: 10px;
+    font-weight: 300;
+    margin: 10px 0;
+}
+
+.c-section-label {
+    color: var(--grey);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.c-section-input,
+.c-section-select {
+    height: 45px;
+    background: var(--grey-opacity-20);
+    border-radius: 24px;
+    outline: none;
+    padding-left: 20px;
+}
+
+.c-section-textArea {
+    background: var(--grey-opacity-20);
+    border-radius: 24px;
+    outline: none;
+    padding-left: 20px;
+}
+
+.c-section-input:focus,
+.c-section-select:focus,
+.c-section-textArea:focus {
+    background: var(--grey-opacity-20);
+    border: 1px solid var(--blue-opacity-60);
+    box-shadow: none;
+}
+
+.c-section-input::placeholder {
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.c-section-group-buttom {
+    display: flex;
+    justify-content: flex-end;
+    margin: 31px 0;
+}
+
+.c-section-button--cancel {
+    display: inline-block;
+    width: 116px;
+    height: 34px;
+    color: var(--white);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 13px;
+    background: var(--grey-secondary);
+    border-radius: 24px;
+    line-height: 34px;
+    padding-left: 10px;
+    margin-right: 24px;
+}
+
+.c-section-button--cancel:hover {
+    color: var(--white);
+    text-decoration: none;
+    background: var(--red);
+}
+
+.c-section-button--salve {
+    width: 116px;
+    height: 34px;
+    color: var(--white);
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 13px;
+    background: var(--orange);
+    border: 0;
+    border-radius: 24px;
+    line-height: 34px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.c-section-button--salve:hover {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.c-section-table--image {
+    width: 75px;
+    height: 75px;
+    border-radius: 20%;
+}

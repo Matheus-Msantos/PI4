@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,3 +31,10 @@ Route::post('address/store', [AddressController::class, 'store'])->name('address
 Route::get('address/edit/{address}', [AddressController::class, 'edit'])->name('address.edit');
 Route::post('address/update/{address}', [AddressController::class, 'update'])->name('address.update');
 Route::get('address/destroy/{address}', [AddressController::class, 'destroy'])->name('address.destroy');
+
+Route::get('user', [UserController::class, 'index'])->name('user.index');
+Route::get('user/create', [UserController::class, 'create'])->name('user.create');
+Route::post('user/store', [UserController::class, 'store'])->name('user.store');
+Route::get('user/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
+Route::post('user/update/{user}', [UserController::class, 'update'])->name('user.update');
+Route::get('user/destroy/{user}', [UserController::class, 'destroy'])->name('user.destroy');

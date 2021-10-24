@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Address;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -13,29 +14,57 @@ class ProductController extends Controller
     public function index()
     {
         return view('product.index')->with('products', Product::all());
-
-        //return response()->json(Product::all());
     }
+
+
+    public function indexApi()
+    {
+        return response()->json(Product::with('category')->get());
+    }
+
 
     public function create()
     {
         return view('product.create')->with(['categories' => Category::all(), 'addresses' => Address::all()]);
     }
 
+
     public function store(Request $request)
     {
-        Product::create($request->all());
+        if($request->image) {
+            $image = $request->file('image')->store('/public/product');
+            $image = str_replace('public/', 'storage/', $image);
+        }else {
+            $image  = "storage/imageDefault.jpg";
+        }
+
+        Product::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'time' => $request->time,
+            'date' => $request->date,
+            'classification' => $request->classification,
+            'category_id' => $request->category_id,
+            'price' => $request->price,
+            'address_id' => $request->address_id,
+            'image' => $image
+        ]);
         session()->flash('success', 'Evento cadastrado com sucesso!');
         return redirect(Route('product.index'));
 
-        //$product = Product::create($request->all());
-        //return response()->json($product);
+
+    }
+
+
+    public function storeApi(Request $request) {
+        $product = Product::create($request->all());
+        return response()->json($product);
     }
 
 
     public function show(Product $product)
     {
-        return response()->json($product);
+        return response()->json(Product::with('category')->where('id', $product->id)->get());
     }
 
 
@@ -47,22 +76,49 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
-        $product->update($request->all());
+        if($request->image) {
+            $image = $request->file('image')->store('/public/product');
+            $image = str_replace('public/','storage/', $image);
+            if($product->image != "storage/imageDefault.jpg")
+                Storage::delete(str_replace('storage/', 'public/',$product->image));
+        }else {
+            $image = $product->image;
+        }
+
+        $product->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'time' => $request->time,
+            'date' => $request->date,
+            'classification' => $request->classification,
+            'category_id' => $request->category_id,
+            'price' => $request->price,
+            'address_id' => $request->address_id,
+            'image' => $image
+        ]);
         session()->flash('success', 'Evento atualizado com sucesso!');
         return redirect(Route('product.index'));
+    }
 
-        //$product->update($request->all());
-        //return response()->json($product);
+    public function updateApi(Request $request, Product $product)
+    {
+        $product->update($request->all());
+        return response()->json($product);
     }
 
 
     public function destroy(Product $product)
     {
         $product->delete();
+        Storage::delete(str_replace('storage/', 'public/',$product->image));
         session()->flash('success', 'Evento deletado com sucesso!');
         return redirect(Route('product.index'));
+    }
 
-        // $product->delete();
-        //return response()->json($product);
+
+    public function destroyApi(Product $product)
+    {
+        $product->delete();
+        return response()->json($product);
     }
 }

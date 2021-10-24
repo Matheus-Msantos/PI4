@@ -1,83 +1,64 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <title>Portal ADM - Eventos</title>
-
-
-    <script>
-        function remove(route) {
-            if(confirm('Você realmente deseja apagar esse evento?'))
-                window.location = route;
-        }
-
-    </script>
-</head>
-<body class="container">
+@extends('layouts.head')
+@section('content')
+<body class="c-section-container">
 
     @if(session()->has('success'))
-        <div class="alert alert-info" role="alert">
+        <div class="c-section-alert alert" role="alert">
             {{ session()->get('success') }}
         </div>
     @endif
 
-    <ul class="nav justify-content-center bg-secondary">
-        <li class="nav-item">
-            <a class="h5 nav-link active text-white fw-bold" href="{{ Route('category.index') }}">Categoria</a>
-        </li>
-        <li class="nav-item">
-            <a class="h5 nav-link active text-white fw-bold" href="{{ Route('address.index') }}">Endereço</a>
-        </li>
-    </ul>
+    <h1 class="c-section-title">Lista de Eventos</h1>
 
-    <h1 class="mt-5 text-center text-uppercase fw-bold">Lista de Eventos</h1>
+    <a href="{{ Route('product.create') }}" class="c-section-button--create">Cadastrar Evento</a>
 
-
-
-    <a href="{{ Route('product.create') }}" class="btn btn-primary mb-3 fw-bold">Cadastrar Evento</a>
-
-    <table class="table table-bordered border-primary">
-        <thead>
-            <tr class="text-center">
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Preço</th>
-                <th>Data</th>
-                <th>Hora</th>
-                <th>Classificação</th>
-                <th>Descrição</th>
-                <th>Categoria</th>
-                <th>Endereço</th>
-                <th>Ação</th>
+    <table class="c-section-table table table-hover">
+        <thead class="c-section-table--head">
+            <tr class="c-section-table--row">
+                <th class="c-section-table--header">ID</th>
+                <th class="c-section-table--header">Image</th>
+                <th class="c-section-table--header">Nome</th>
+                <th class="c-section-table--header">Preço</th>
+                <th class="c-section-table--header">Data</th>
+                <th class="c-section-table--header">Hora</th>
+                <th class="c-section-table--header">Classificação</th>
+                <th class="c-section-table--header">Descrição</th>
+                <th class="c-section-table--header">Categoria</th>
+                <th class="c-section-table--header">Endereço</th>
+                <th class="c-section-table--header">Ação</th>
             </tr>
         <thead>
 
-        <tbody>
+        <tbody class="c-section-table--body">
             @foreach($products as $product)
-                <tr class="text-center">
-                    <td>{{ $product->id }}</td>
-                    <td>{{ $product->name }}</td>
-                    <td>{{ $product->price }}</td>
-                    <td>{{ $product->date }}</td>
-                    <td>{{ $product->time }}</td>
-                    <td>{{ $product->classification }}</td>
-                    <td>{{ $product->description }}</td>
-                    <td>{{ $product->category_id }}</td>
-                    <td>{{ $product->address_id }}</td>
-                    <td>
-                        <a href="#" class="btn btn-success">visualizar<a>
-                        <a href="{{ Route('product.edit', $product->id) }}" class="btn btn-warning">Editar<a>
-                        <a onclick="remove('{{ Route('product.destroy', $product->id) }}');" href="#" class="btn btn-danger">Excluir</a>
+                <tr class="c-section-table--head">
+
+                    <td class="c-section-table--data">{{ $product->id }}</td>
+                    <td class="c-section-table--data">
+                        <img class="c-section-table--image" src="{{ $product->image }}">
                     </td>
+                    <td class="c-section-table--data">{{ $product->name }}</td>
+                    <td class="c-section-table--data">{{ $product->price }}</td>
+                    <td class="c-section-table--data">{{ $product->date }}</td>
+                    <td class="c-section-table--data">{{ $product->time }}</td>
+                    <td class="c-section-table--data">{{ $product->classification }}</td>
+                    <td class="c-section-table--data">{{ $product->description }}</td>
+                    <td class="c-section-table--data">{{ $product->category_id }}</td>
+                    <td class="c-section-table--data">{{ $product->address_id }}</td>
+                    <td class="c-section-table--data">
+
+                        <a class="c-section-table--button-edit" href="{{ Route('product.edit', $product->id) }}">
+                            <i class="fas fa-pencil-alt fa-sm"></i>
+                        <a>
+                        <a class="c-section-table--button-delete" onclick="remove('{{ Route('product.destroy', $product->id) }}');" href="#" >
+                            <i class="fas fa-trash fa-sm"></i>
+                        </a>
+
+                    </td>
+
                 </tr>
             @endforeach
         </tbody>
     </table>
 </body>
-</html>
+@endsection
