@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,3 +39,8 @@ Route::post('user/store', [UserController::class, 'store'])->name('user.store');
 Route::get('user/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
 Route::post('user/update/{user}', [UserController::class, 'update'])->name('user.update');
 Route::get('user/destroy/{user}', [UserController::class, 'destroy'])->name('user.destroy');
+
+
+Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+Route::get('/order/edit/{order}', [OrderController::class, 'edit'])->name('order.edit');
+Route::post('order/update/{order}', [OrderController::class, 'update'])->name('order.update');

@@ -6,6 +6,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CartsController;
+use App\Http\Controllers\OrderController;
 
 
 
@@ -13,6 +15,13 @@ use App\Http\Controllers\UserController;
 /*-- Route user e auth --*/
 Route::group([ 'middleware' =>'auth:sanctum'], function(){
     Route::get('/product', [ProductController::class, 'indexApi']);
+    Route::get('/cart/add/{product}', [CartsController::class, 'add']);
+    Route::get('/cart/remove/{product}', [CartsController::class, 'remove']);
+    Route::get('/cart', [CartsController::class, 'index']);
+    Route::get('/cart/payment', [CartsController::class, 'payment']);
+    Route::post('/order/add', [OrderController::class, 'add']);
+    Route::get('/order', [OrderController::class, 'indexApi']);
+
 });
 
 Route::post('/login', [UserController::class, 'login']);
