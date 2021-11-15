@@ -50,7 +50,7 @@ class CartsController extends Controller
 
     public function index() {
         $cart = Cart::where('user_id','=',Auth()->user()->id)->get();
-        return response()->json(Cart::with('product')->get());
+        return response()->json($cart);
     }
 
     public function payment() {

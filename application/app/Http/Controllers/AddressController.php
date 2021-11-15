@@ -14,6 +14,11 @@ class AddressController extends Controller
         //return response()->json(Address::all());
     }
 
+    public function indexApi()
+    {
+       return response()->json(Address::all());
+    }
+
     public function create()
     {
         return view('address.create');
@@ -28,6 +33,12 @@ class AddressController extends Controller
 
         //$address = Address::create($request->all());
         //return response()->json($address);
+    }
+
+    public function storeApi(Request $request)
+    {
+        $address = Address::create($request->all());
+        return response()->json($address);
     }
 
 
@@ -53,6 +64,11 @@ class AddressController extends Controller
         //return response()->json($address);
     }
 
+    public function updateApi(Request $request, address $address){
+        $address->update($request->all());
+        return response()->json($address);
+    }
+
     public function destroy(address $address)
     {
         $address->delete();
@@ -61,5 +77,11 @@ class AddressController extends Controller
 
         //$address->delete();
         //return response()->json($address);
+    }
+
+    public function destroyApi(address $address)
+    {
+        $address->delete();
+        return response()->json($address);
     }
 }

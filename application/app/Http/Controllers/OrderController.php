@@ -32,8 +32,13 @@ class OrderController extends Controller
     }
 
     public function indexApi() {
-        $order = Order::where('user_id','=', Auth()->user()->id)->get();
+        $order = Order::with('user')->where('user_id','=', Auth()->user()->id)->get();
         return response()->json($order);
+    }
+
+    public function orderItem() {
+
+        return response()->json(OrderItem::with('order', 'products')->get());
     }
 
     public function index() {

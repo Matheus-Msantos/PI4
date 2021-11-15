@@ -17,8 +17,12 @@ class Order extends Model
         return OrderItem::where('order_id','=', $this->id)->get();
     }
 
+    public function OrderItem() {
+        return $this->hasMany(OrderItem::class);
+    }
+
     public function user() {
-        return User::where('id', '=', $this->user_id)->first();
+        return $this->belongsTo(User::class);
     }
 
 }

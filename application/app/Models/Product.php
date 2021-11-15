@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\OrderItem;
 
 class Product extends Model
 {
@@ -17,5 +18,13 @@ class Product extends Model
 
     public function address() {
         return $this->belongsTo(Address::class);
+    }
+
+    public function orderItem() {
+        return $this->hasMany(OrderItem::class);
+    }
+
+    public function cart() {
+        return $this->belongsTo(Cart::class);
     }
 }

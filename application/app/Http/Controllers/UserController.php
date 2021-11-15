@@ -21,6 +21,11 @@ class UserController extends Controller
         return view('user.create');
     }
 
+    public function show()
+    {
+        return response()->json(Auth()->user());
+    }
+
 
     function store(Request $request){
         $request->validate([
@@ -59,7 +64,6 @@ class UserController extends Controller
             'email' => 'required|email|unique:users',
             'name'=> 'required|max:255',
             'password' => 'required|min:8',
-            'device_name' => 'required'
         ]);
 
         if($request->image) {
@@ -85,7 +89,7 @@ class UserController extends Controller
 
         return response()->json( [
             'user'=> $user,
-            'token'=> $user->createToken ($request->device_name)-> plainTextToken
+            'token'=> $user->createToken ($request->email)-> plainTextToken
 
         ]);
     }
@@ -141,8 +145,7 @@ class UserController extends Controller
 
         $request->validate([
             'email' => 'required',
-            'password' => 'required',
-            'device_name' => 'required'
+            'password' => 'required'
         ]);
 
        $user = User::where ('email', $request->email) -> first();
@@ -157,7 +160,7 @@ class UserController extends Controller
 
        return response()->json( [
             'user'=> $user,
-            'token'=> $user->createToken ($request->device_name)-> plainTextToken
+            'token'=> $user->createToken ($request->email)-> plainTextToken
         ]);
 
     }
