@@ -100,30 +100,33 @@ class UserController extends Controller
     }
 
 
-    public function update(Request $request, User $user)
-    {
-        $user->update([$request->all()]);
+    public function update(Request $request, User $user){
+        if($request->image) {
+            $image = $request->file('image')->store('/public/product');
+            $image = str_replace('public/', 'storage/', $image);
+        }else {
+            $image  = "storage/imageDefault.jpg";
+        }
+
+        $user->update([
+            "isAdmin" => $request->isAdmin,
+            "image" => $image
+        ]);
         return redirect(Route('user.index'));
     }
 
 
     function updateApi (User $user, Request $request){
         if($request->image) {
-            $image = $request->file('image')->store('/public/user');
-            $image = str_replace('public/','storage/', $image);
-            if($user->image != "storage/imageDefault.jpg")
-                Storage::delete(str_replace('storage/', 'public/',$user->image));
+            $image = $request->file('image')->store('/public/product');
+            $image = str_replace('public/', 'storage/', $image);
         }else {
-            $image = $user->image;
+            $image  = "storage/imageDefault.jpg";
         }
 
-        if($request->isAdmin) {
-            $isAdmin = $request->isAdmin;
-        }else {
-            $isAdmin = 0;
-        }
-
-        $user->update($request->all());
+        $user->update([
+            "name" => $request->name
+        ]);
 
         return response()->json($user);
     }

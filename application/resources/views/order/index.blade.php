@@ -10,6 +10,10 @@
 
     <h1 class="c-section-title">Lista de Pedidos</h1>
 
+    @foreach(App\Models\Order::where('user_id', '=', Auth()->user()->id)->get() as $orderI )
+    {{$orderI->status}}
+    @endforeach
+
     <table class="c-section-table table table-hover">
         <thead class="c-section-table--head">
             <tr class="c-section-table--row">
@@ -26,7 +30,7 @@
                 <tr class="c-section-table--head">
 
                     <td class="c-section-table--data">{{ $order->id }}</td>
-                    <td class="c-section-table--data">{{ $order->user()->name }}</td>
+                    <td class="c-section-table--data">{{ $order->user->name }}</td>
                     <td class="c-section-table--data">{{ $order->status }}</td>
                     <td class="c-section-table--data">{{ $order->cc_number }}</td>
                     <td class="c-section-table--data">

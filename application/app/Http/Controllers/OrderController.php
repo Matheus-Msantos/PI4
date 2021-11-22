@@ -24,15 +24,18 @@ class OrderController extends Controller
             'order_id' => $order->id,
             'product_id' => $item->product_id,
             'quantity' => $item->quantity,
-            'price' => $item->product()->price,
+            'price' => $item->products()->price * $item->quantity,
             ]);
             $item->delete();
         }
 
+        $order::with('user')->where('user_id','=', Auth()->user()->id)->get();
+        return response()->json($order);
+
     }
 
     public function indexApi() {
-        $order = Order::with('user')->where('user_id','=', Auth()->user()->id)->get();
+        $order = Order::with('user', 'orderItem')->where('user_id','=', Auth()->user()->id)->get();
         return response()->json($order);
     }
 

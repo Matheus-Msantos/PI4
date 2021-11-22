@@ -7,12 +7,11 @@
 
     <h1 class="c-section-title--form">Editar Pedido</h1>
 
-
     <form class="c-section-form" method="POST" action="{{ Route('order.update', $order->id) }}" enctype="multipart/form-data">
         @csrf
 
         <label class="c-section-label h6 form-label">Nome</label>
-        <input class="c-section-input mb-3 form-control" id="nome" name="name" type="text" placeholder="nome" value='{{ $order->user()->name }}' disabled/>
+        <input class="c-section-input mb-3 form-control" id="nome" name="name" type="text" placeholder="nome" value='{{ $order->user->name }}' disabled/>
 
 
         <label class="c-section-label h6 form-label">Status</label>

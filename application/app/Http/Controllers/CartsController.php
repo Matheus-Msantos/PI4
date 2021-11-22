@@ -45,11 +45,12 @@ class CartsController extends Controller
             $item->delete();
         }
 
-
+        $cart = Cart::where('user_id','=',Auth()->user()->id)->get();
+        return response()->json($cart);
     }
 
     public function index() {
-        $cart = Cart::where('user_id','=',Auth()->user()->id)->get();
+        $cart = Cart::with('product')->where('user_id','=',Auth()->user()->id)->get();
         return response()->json($cart);
     }
 

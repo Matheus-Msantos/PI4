@@ -8,6 +8,7 @@ use App\Http\Controllers\AddressController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CartsController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderItemController;
 
 
 
@@ -22,7 +23,7 @@ Route::group([ 'middleware' =>'auth:sanctum'], function(){
     Route::post('/order/add', [OrderController::class, 'add']);
     Route::get('/order', [OrderController::class, 'indexApi']);
     Route::get('/order/item', [OrderController::class, 'orderItem']);
-
+    Route::get('/order/item/{orderItem}', [OrderItemController::class, 'orderItem']);
 
     Route::get('/user/show', [UserController::class, 'show']);
 });

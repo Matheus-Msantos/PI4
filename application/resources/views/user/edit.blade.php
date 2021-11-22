@@ -18,6 +18,9 @@
             <button type="submit" class="c-section-button--salve">Atualizar</button>
         </div>
 
+        <label class="c-section-label h6 form-label">Imagem</label>
+        <input class="c-section-input mb-3 form-control" id="image" name="image" type="file">
+
     </form>
 </body>
 @endsection
