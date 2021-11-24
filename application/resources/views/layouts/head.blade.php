@@ -19,6 +19,13 @@
     <script src="https://kit.fontawesome.com/4d52201842.js" crossorigin="anonymous"></script>
 
     <title>Portal ADM</title>
+
+
+    <script>
+    function remover() {
+      return confirm('Você realmente deseja excluir esse produto?');
+    }
+    </script>
 </head>
     @yield('content')
     <div id="wrapper">

@@ -33,16 +33,19 @@
                 <tr class="c-section-table--head">
                     <td class="c-section-table--data">{{ $category->id }}</td>
                     <td class="c-section-table--data">{{ $category->name }}</td>
-                    <td class="c-section-table--data">
+                    <td class="c-section-table--data c-section-table--button">
                         {{-- <a href="#" class="c-section-table--button btn btn-success" style="border-radius: 100%">
                             <i class="fas fa-eye text-white"></i>
                         </a> --}}
                         <a href="{{ Route('category.edit', $category->id) }}" class="c-section-table--button-edit" style="border-radius: 100%">
                             <i class="fas fa-pencil-alt fa-sm"></i>
                         </a>
-                        <a onclick="remove('{{ Route('category.destroy', $category->id) }}');" href="#" class="c-section-table--button-delete" style="border-radius: 100%">
-                            <i class="fas fa-trash fa-sm"></i>
-                        </a>
+                        <form action="{{ Route('category.destroy', $category->id) }}" method="POST" onsubmit="return remover()" class="d-inline">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="text-danger border-none"><i class="fas fa-trash fa-sm"></i></button>
+                        </form>
+
                     </td>
                 </tr>
             @endforeach

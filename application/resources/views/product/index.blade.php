@@ -50,9 +50,11 @@
                         <a class="c-section-table--button-edit" href="{{ Route('product.edit', $product->id) }}">
                             <i class="fas fa-pencil-alt fa-sm"></i>
                         <a>
-                        <a class="c-section-table--button-delete" onclick="remove('{{ Route('product.destroy', $product->id) }}');" href="#" >
-                            <i class="fas fa-trash fa-sm"></i>
-                        </a>
+                        <form action="{{ Route('product.destroy', $product->id) }}" method="POST" onsubmit="return remover()" class="d-inline">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="text-danger border-none"><i class="fas fa-trash fa-sm"></i></button>
+                        </form>
 
                     </td>
 

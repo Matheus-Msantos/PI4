@@ -36,13 +36,16 @@
                     <td class="c-section-table--data">{{ $address->city }}</td>
                     <td class="c-section-table--data">{{ $address->state }}</td>
                     <td class="c-section-table--data">{{ $address->country }}</td>
-                    <td class="c-section-table--data">
+                    <td class="c-section-table--data c-section-table--button">
                     <a href="{{ Route('address.edit', $address->id) }}" class="c-section-table--button-edit">
                             <i class="fas fa-pencil-alt fa-sm"></i>
                         </a>
-                        <a onclick="remove('{{ Route('address.destroy', $address->id) }}');" href="#" class="c-section-table--button-delete">
-                            <i class="fas fa-trash fa-sm"></i>
-                        </a>
+                        <form action="{{ Route('address.destroy', $address->id) }}" method="POST" onsubmit="return remover()" class="d-inline">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="text-danger border-none"><i class="fas fa-trash fa-sm"></i></button>
+                        </form>
+
                     </td>
                 </tr>
             @endforeach

@@ -33,13 +33,15 @@
                     <td class="c-section-table--data">{{ $user->name }}</td>
                     <td class="c-section-table--data">{{ $user->email }}</td>
                     <td class="c-section-table--data">{{ $user->isAdmin }}</td>
-                    <td class="c-section-table--data">
+                    <td class="c-section-table--data c-section-table--button">
                         <a href="{{ Route('user.edit', $user->id) }}" class="c-section-table--button-edit">
                             <i class="fas fa-pencil-alt fa-sm"></i>
                         </a>
-                        <a onclick="remove('{{ Route('user.destroy', $user->id) }}');" href="#" class="c-section-table--button-delete">
-                            <i class="fas fa-trash fa-sm"></i>
-                        </a>
+                        <form action="{{ Route('user.destroy', $user->id) }}" method="POST" onsubmit="return remover()" class="d-inline">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="text-danger border-none"> <i class="fas fa-trash fa-sm"></i></button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
