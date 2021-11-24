@@ -30,7 +30,13 @@
                 <div class="m-4">
                     <img class="img-thumbnail" src="{{ asset('image/gnose.png') }}" alt="Brand">
                 </div>
-                <div class="m-4">
+
+                <div class="c-nav-user">
+                <span>Olá {{ Auth()->user()->name }}</span>
+                </div>
+
+
+                <div class="c-nav-links">
                     <li class="mb-1 p-1">
                         <a class="button pr-5 pl-5 font-weight-bold" href="{{ Route('product.index') }}" style="border-radius: 30px">EVENTOS</a>
                     </li>
@@ -48,8 +54,13 @@
                     </li>
                 </div>
             </ul>
-            <div class="p-4 m-4">
-                <a class="pr-5 pl-5 btn-sair font-weight-bold" href="#sair" style="border-radius: 30px">SAIR</a>
+            <div class="c-nav-logout">
+
+                <form method="POST" action="{{ Route('logout') }}">
+                @csrf
+                    <a class="pr-5 pl-5 btn-sair font-weight-bold" href="{{ Route('logout') }}" style="border-radius: 30px" onclick="event.preventDefault(); this.closest('form').submit();">SAIR</a>
+                </form>
+
             </div>
         </nav>
         <!-- /#sidebar-wrapper -->
@@ -57,12 +68,10 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
-                     <span class="hamb-top"></span>
-                     <span class="hamb-middle"></span>
-                     <span class="hamb-bottom"></span>
-                 </button>
+                <span class="hamb-top"></span>
+                <span class="hamb-middle"></span>
+                <span class="hamb-bottom"></span>
+            </button>
+    </div>
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
 </html>

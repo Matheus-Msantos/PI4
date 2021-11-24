@@ -45,7 +45,7 @@
                     <td class="c-section-table--data">{{ $product->description }}</td>
                     <td class="c-section-table--data">{{ $product->category_id }}</td>
                     <td class="c-section-table--data">{{ $product->address_id }}</td>
-                    <td class="c-section-table--data">
+                    <td class="c-section-table--data c-section-table--button">
 
                         <a class="c-section-table--button-edit" href="{{ Route('product.edit', $product->id) }}">
                             <i class="fas fa-pencil-alt fa-sm"></i>

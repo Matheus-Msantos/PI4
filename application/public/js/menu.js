@@ -1,9 +1,9 @@
-$(document).ready(function() {
+$(document).ready(function () {
     var trigger = $('.hamburger'),
         overlay = $('.overlay'),
         isClosed = false;
 
-    trigger.click(function() {
+    trigger.click(function () {
         hamburger_cross();
     });
 
@@ -22,7 +22,7 @@ $(document).ready(function() {
         }
     }
 
-    $('[data-toggle="offcanvas"]').click(function() {
+    $('[data-toggle="offcanvas"]').click(function () {
         $('#wrapper').toggleClass('toggled');
     });
 });

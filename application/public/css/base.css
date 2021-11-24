@@ -81,6 +81,10 @@
     vertical-align: middle !important;
 }
 
+.c-section-table--button {
+    width: 93px;
+}
+
 .c-section-table--button-edit {
     display: inline-block;
     color: white;
@@ -249,4 +253,100 @@
     width: 75px;
     height: 75px;
     border-radius: 20%;
+}
+
+.c-order-container {
+    width: 1160px;
+    background: rgba(204, 204, 204, 0.3);
+    margin: 10px auto;
+    padding: 10px;
+}
+
+.c-order-container--row1,
+.c-order-container--row2 {
+    display: flex;
+    justify-content: center;
+}
+
+.c-order-container--row1 {
+    margin-bottom: 10px;
+}
+
+.c-order--title,
+.c-order--text {
+    display: block;
+}
+
+.c-order--title {
+    color: #000;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.c-order-id {
+    width: 280px;
+    border: 1px solid #707070;
+    padding: 5px;
+}
+
+.c-order-nameUser {
+    width: 480px;
+    border: 1px solid #707070;
+    margin-left: 17px;
+    padding: 5px;
+}
+
+.c-order-product-name {
+    width: 300px;
+    border: 1px solid #707070;
+    padding: 5px;
+    margin-right: 17px;
+}
+
+.c-order-product-quantity {
+    width: 150px;
+    border: 1px solid #707070;
+    margin-left: 17px;
+    padding: 5px;
+}
+
+.c-order-product-price {
+    width: 100px;
+    border: 1px solid #707070;
+    margin-left: 17px;
+    padding: 5px;
+    margin-right: 17px;
+}
+
+.c-order-product-status {
+    width: 200px;
+    border: 1px solid #707070;
+    margin-left: 17px;
+    padding: 5px;
+}
+
+.c-order--text.green {
+    color: green;
+}
+
+.c-order--text.red {
+    color: red;
+}
+
+.c-order-product-image {
+    border: 1px solid #707070;
+    margin-left: 17px;
+    padding: 5px;
+}
+
+.c-order-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.c-order-button i {
+    display: block;
+    text-align: center;
+    margin-top: 6px;
 }
