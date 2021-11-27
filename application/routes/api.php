@@ -33,6 +33,7 @@ Route::post('/login', [UserController::class, 'login']);
 Route::post('/user', [UserController::class, 'storeApi']);
 Route::put('/user/{user}', [UserController::class, 'updateApi']);
 Route::delete('/user/{user}', [UserController::class, 'destroyApi']);
+Route::get('/user/logout', [UserController::class, 'logout']);
 
 /*-- Route Product --*/
 Route::get('/product', [ProductController::class, 'indexApi']);
